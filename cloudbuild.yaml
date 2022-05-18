@@ -17,18 +17,8 @@ steps:
       - '--cache-from'
       - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
       - '.'
-
-  - id: 'gcpdemo: unit tests'
-    name: 'gcr.io/$PROJECT_ID/gcpdemo:latest'
-    args:
-    - -c
-    - >
-      echo "running pytest -v" &&
-      pytest -v 
   # Step 3: Push the docker image to the run
   - name: 'gcr.io/cloud-builders/docker'
-    waitFor:
-    - 'gcpdemo: unit tests'
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/gcpdemo'
