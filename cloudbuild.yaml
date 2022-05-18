@@ -13,7 +13,7 @@ steps:
       - '-t'
       - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/gcpdemo:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
       - '--cache-from'
       - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
       - '.'
