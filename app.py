@@ -13,6 +13,10 @@ model = Model.get_instance()
 def health():
   return jsonify({"status": "OK"})
 
+@app.route('/describe', method=['GET'])
+def describe():
+  return model.data.describe().to_json()
+
 @app.route('/predict', methods=['POST'])
 def predict():
   data = request.get_json()

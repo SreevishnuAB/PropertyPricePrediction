@@ -15,15 +15,16 @@ class Model():
 
   def __init__(self):
     self.model = None
+    self.data = None
 
   def fit(self):
     file_path = './melb_data.csv'
-    data = pd.read_csv(file_path)
-    logging.info(f"Length of dataset {len(data)}")
-    data = data.dropna(axis=0)
+    self.data = pd.read_csv(file_path)
+    logging.info(f"Length of dataset {len(self.data)}")
+    self.data = self.data.dropna(axis=0)
     features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
-    y = data.Price
-    X = data[features]
+    y = self.data.Price
+    X = self.data[features]
     train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=1)
     self.model = RandomForestRegressor(random_state=1)
     self.model.fit(train_X, train_y)
