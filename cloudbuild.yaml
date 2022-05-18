@@ -19,7 +19,7 @@ steps:
       - '.'
 
   - id: 'gcpdemo: unit tests'
-    name: 'gcr.io/$PROJECT_ID/docker'
+    name: 'gcr.io/$PROJECT_ID/gcpdemo:latest'
     args:
     - -c
     - >
