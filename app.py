@@ -13,7 +13,7 @@ model = Model.get_instance()
 def health():
   return jsonify({"status": "OK"})
 
-@app.route('/describe', method=['GET'])
+@app.route('/describe', methods=['GET'])
 def describe():
   return model.data.describe().to_json()
 
