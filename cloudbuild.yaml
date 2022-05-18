@@ -40,6 +40,8 @@ steps:
       - 'gcpdemo'
       - '--image'
       - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
+      - '--region'
+      - 'global'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
