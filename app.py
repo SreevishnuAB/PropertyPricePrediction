@@ -9,6 +9,10 @@ logging.basicConfig(level='INFO')
 app = Flask(__name__)
 model = Model.get_instance()
 
+@app.route('/health', methods=['GET'])
+def health():
+  return jsonify({"status": "OK"})
+
 @app.route('/predict', methods=['POST'])
 def predict():
   data = request.get_json()
