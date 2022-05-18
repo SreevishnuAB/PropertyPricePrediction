@@ -1,6 +1,0 @@
-applications:
-  - name: myapp
-    host: "DemoPyApp"
-    path: .
-    memory: 128M
-    command: python app.py
