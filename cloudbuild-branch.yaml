@@ -17,8 +17,3 @@ steps:
       - '--cache-from'
       - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
       - '.'
-  # Step 3: Push the docker image to the run
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/gcpdemo'
