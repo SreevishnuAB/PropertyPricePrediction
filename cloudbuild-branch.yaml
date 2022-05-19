@@ -1,0 +1,19 @@
+
+steps:
+  # Step 1: pull the container image if it is already built, if fails do not exit
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'docker pull gcr.io/$PROJECT_ID/gcpdemo:latest || exit 0'
+   # Step 2: Create a docker image if none exists, esle load existing one
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
+      - '--cache-from'
+      - 'gcr.io/$PROJECT_ID/gcpdemo:latest'
+      - '.'
